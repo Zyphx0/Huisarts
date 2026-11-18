@@ -2,13 +2,7 @@ namespace Huisarts_nieuwepatient
 {
     public partial class FormNieuwePatient : Form
     {
-        public string Voornaam { get { return textBox1.Text.Trim(); } }
-        public string Achternaam { get { return textBox2.Text.Trim(); } }
-        public string Adres { get { return textBox3.Text.Trim(); } }
-        public string Huisnummer { get { return textBox4.Text.Trim(); } }
-        public string Postcode { get { return textBox5.Text.Trim(); } }
-        public string Plaats { get { return textBox6.Text.Trim(); } }
-        public string Telefoon { get { return textBox7.Text.Trim(); } }
+        public string Voornaam, Achternaam, Adres, Huisnummer, Postcode, Plaats, Telefoon;
 
         public FormNieuwePatient()
         {
@@ -17,12 +11,22 @@ namespace Huisarts_nieuwepatient
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            if (Voornaam == "" || Achternaam == "" || Adres == "" || Huisnummer == "" ||
-                Postcode == "" || Plaats == "" || Telefoon == "")
+            if (txtVoornaam.Text.Trim() == "" || txtAchternaam.Text.Trim() == "" ||
+                txtAdres.Text.Trim() == "" || txtHuisnummer.Text.Trim() == "" ||
+                txtPostcode.Text.Trim() == "" || txtPlaats.Text.Trim() == "" ||
+                txtTelefoon.Text.Trim() == "")
             {
                 MessageBox.Show("Vul alle velden in.");
                 return;
             }
+
+            Voornaam = txtVoornaam.Text.Trim();
+            Achternaam = txtAchternaam.Text.Trim();
+            Adres = txtAdres.Text.Trim();
+            Huisnummer = txtHuisnummer.Text.Trim();
+            Postcode = txtPostcode.Text.Trim();
+            Plaats = txtPlaats.Text.Trim();
+            Telefoon = txtTelefoon.Text.Trim();
 
             DialogResult = DialogResult.OK;
             Close();

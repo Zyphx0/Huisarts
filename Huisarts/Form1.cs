@@ -88,24 +88,29 @@ namespace Huisarts
         private void button1_Click(object sender, EventArgs e)
         {
             FormNieuwePatient f = new FormNieuwePatient();
-            f.ShowDialog();
-            if (f.ShowDialog() == DialogResult.OK)
-            {
-                string voornaam = f.Voornaam.Replace("'", "''");
-                string achternaam = f.Achternaam.Replace("'", "''");
-                string adres = f.Adres.Replace("'", "''");
-                string huisnummer = f.Huisnummer.Replace("'", "''");
-                string postcode = f.Postcode.Replace("'", "''");
-                string plaats = f.Plaats.Replace("'", "''");
-                string telefoon = f.Telefoon.Replace("'", "''");
-                //a
-                connect.ExecuteQuery(
-                    $"INSERT INTO patient_info (voornaam, Acternaam, Adres, Huisnummer, Postcode, Plaats, telefoonnummer) " +
-                    $"VALUES ('{voornaam}', '{achternaam}', '{adres}', '{huisnummer}', '{postcode}', '{plaats}', '{telefoon}')");
 
-                pagia = 1;
-                LaadPatienten();
-            }
+            f.FormClosed += (s, args) =>
+            {
+                if (f.DialogResult == DialogResult.OK)
+                {
+                    string voornaam = f.Voornaam.Replace("'", "''");
+                    string achternaam = f.Achternaam.Replace("'", "''");
+                    string adres = f.Adres.Replace("'", "''");
+                    string huisnummer = f.Huisnummer.Replace("'", "''");
+                    string postcode = f.Postcode.Replace("'", "''");
+                    string plaats = f.Plaats.Replace("'", "''");
+                    string telefoon = f.Telefoon.Replace("'", "''");
+
+                    connect.ExecuteQuery(
+                        $"INSERT INTO patient_info (voornaam, Acternaam, Adres, Huisnummer, Postcode, Plaats, telefoonnummer) " +
+                        $"VALUES ('{voornaam}', '{achternaam}', '{adres}', '{huisnummer}', '{postcode}', '{plaats}', '{telefoon}')");
+
+                    pagia = 1;
+                    LaadPatienten();
+                }
+            };
+
+            f.Show();
         }
     }
 }

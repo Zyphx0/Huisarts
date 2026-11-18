@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtVoornaam = new TextBox();
+            txtAchternaam = new TextBox();
             label2 = new Label();
-            textBox3 = new TextBox();
+            txtAdres = new TextBox();
             label3 = new Label();
-            textBox4 = new TextBox();
+            txtHuisnummer = new TextBox();
             label4 = new Label();
-            textBox5 = new TextBox();
+            txtPostcode = new TextBox();
             label5 = new Label();
-            textBox6 = new TextBox();
+            txtPlaats = new TextBox();
             label6 = new Label();
-            textBox7 = new TextBox();
+            txtTelefoon = new TextBox();
             label7 = new Label();
             label8 = new Label();
             button1 = new Button();
@@ -57,21 +57,21 @@
             label1.TabIndex = 0;
             label1.Text = "Voornaam";
             // 
-            // textBox1
+            // txtVoornaam
             // 
-            textBox1.Font = new Font("Segoe UI", 18F);
-            textBox1.Location = new Point(53, 77);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(332, 39);
-            textBox1.TabIndex = 1;
+            txtVoornaam.Font = new Font("Segoe UI", 18F);
+            txtVoornaam.Location = new Point(53, 77);
+            txtVoornaam.Name = "txtVoornaam";
+            txtVoornaam.Size = new Size(332, 39);
+            txtVoornaam.TabIndex = 1;
             // 
-            // textBox2
+            // txtAchternaam
             // 
-            textBox2.Font = new Font("Segoe UI", 18F);
-            textBox2.Location = new Point(391, 77);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(303, 39);
-            textBox2.TabIndex = 3;
+            txtAchternaam.Font = new Font("Segoe UI", 18F);
+            txtAchternaam.Location = new Point(391, 77);
+            txtAchternaam.Name = "txtAchternaam";
+            txtAchternaam.Size = new Size(303, 39);
+            txtAchternaam.TabIndex = 3;
             // 
             // label2
             // 
@@ -83,13 +83,13 @@
             label2.TabIndex = 2;
             label2.Text = "Achternaam";
             // 
-            // textBox3
+            // txtAdres
             // 
-            textBox3.Font = new Font("Segoe UI", 18F);
-            textBox3.Location = new Point(53, 186);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(390, 39);
-            textBox3.TabIndex = 5;
+            txtAdres.Font = new Font("Segoe UI", 18F);
+            txtAdres.Location = new Point(53, 186);
+            txtAdres.Name = "txtAdres";
+            txtAdres.Size = new Size(390, 39);
+            txtAdres.TabIndex = 5;
             // 
             // label3
             // 
@@ -101,13 +101,13 @@
             label3.TabIndex = 4;
             label3.Text = "Adres";
             // 
-            // textBox4
+            // txtHuisnummer
             // 
-            textBox4.Font = new Font("Segoe UI", 18F);
-            textBox4.Location = new Point(449, 186);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(245, 39);
-            textBox4.TabIndex = 7;
+            txtHuisnummer.Font = new Font("Segoe UI", 18F);
+            txtHuisnummer.Location = new Point(449, 186);
+            txtHuisnummer.Name = "txtHuisnummer";
+            txtHuisnummer.Size = new Size(245, 39);
+            txtHuisnummer.TabIndex = 7;
             // 
             // label4
             // 
@@ -119,13 +119,13 @@
             label4.TabIndex = 6;
             label4.Text = "Huisnummer";
             // 
-            // textBox5
+            // txtPostcode
             // 
-            textBox5.Font = new Font("Segoe UI", 18F);
-            textBox5.Location = new Point(53, 305);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(220, 39);
-            textBox5.TabIndex = 9;
+            txtPostcode.Font = new Font("Segoe UI", 18F);
+            txtPostcode.Location = new Point(53, 305);
+            txtPostcode.Name = "txtPostcode";
+            txtPostcode.Size = new Size(220, 39);
+            txtPostcode.TabIndex = 9;
             // 
             // label5
             // 
@@ -137,13 +137,13 @@
             label5.TabIndex = 8;
             label5.Text = "Postcode";
             // 
-            // textBox6
+            // txtPlaats
             // 
-            textBox6.Font = new Font("Segoe UI", 18F);
-            textBox6.Location = new Point(279, 305);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(415, 39);
-            textBox6.TabIndex = 11;
+            txtPlaats.Font = new Font("Segoe UI", 18F);
+            txtPlaats.Location = new Point(279, 305);
+            txtPlaats.Name = "txtPlaats";
+            txtPlaats.Size = new Size(415, 39);
+            txtPlaats.TabIndex = 11;
             // 
             // label6
             // 
@@ -155,13 +155,13 @@
             label6.TabIndex = 10;
             label6.Text = "Plaats";
             // 
-            // textBox7
+            // txtTelefoon
             // 
-            textBox7.Font = new Font("Segoe UI", 18F);
-            textBox7.Location = new Point(53, 409);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(372, 39);
-            textBox7.TabIndex = 13;
+            txtTelefoon.Font = new Font("Segoe UI", 18F);
+            txtTelefoon.Location = new Point(53, 409);
+            txtTelefoon.Name = "txtTelefoon";
+            txtTelefoon.Size = new Size(372, 39);
+            txtTelefoon.TabIndex = 13;
             // 
             // label7
             // 
@@ -214,19 +214,19 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label8);
-            Controls.Add(textBox7);
+            Controls.Add(txtTelefoon);
             Controls.Add(label7);
-            Controls.Add(textBox6);
+            Controls.Add(txtPlaats);
             Controls.Add(label6);
-            Controls.Add(textBox5);
+            Controls.Add(txtPostcode);
             Controls.Add(label5);
-            Controls.Add(textBox4);
+            Controls.Add(txtHuisnummer);
             Controls.Add(label4);
-            Controls.Add(textBox3);
+            Controls.Add(txtAdres);
             Controls.Add(label3);
-            Controls.Add(textBox2);
+            Controls.Add(txtAchternaam);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(txtVoornaam);
             Controls.Add(label1);
             Name = "FormNieuwePatient";
             Text = "Form1";
@@ -237,18 +237,18 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtVoornaam;
+        private TextBox txtAchternaam;
         private Label label2;
-        private TextBox textBox3;
+        private TextBox txtAdres;
         private Label label3;
-        private TextBox textBox4;
+        private TextBox txtHuisnummer;
         private Label label4;
-        private TextBox textBox5;
+        private TextBox txtPostcode;
         private Label label5;
-        private TextBox textBox6;
+        private TextBox txtPlaats;
         private Label label6;
-        private TextBox textBox7;
+        private TextBox txtTelefoon;
         private Label label7;
         private Label label8;
         private Button button1;
