@@ -98,7 +98,7 @@ namespace Huisarts
                 string postcode = f.Postcode.Replace("'", "''");
                 string plaats = f.Plaats.Replace("'", "''");
                 string telefoon = f.Telefoon.Replace("'", "''");
-
+                //a
                 connect.ExecuteQuery(
                     $"INSERT INTO patient_info (voornaam, Acternaam, Adres, Huisnummer, Postcode, Plaats, telefoonnummer) " +
                     $"VALUES ('{voornaam}', '{achternaam}', '{adres}', '{huisnummer}', '{postcode}', '{plaats}', '{telefoon}')");
