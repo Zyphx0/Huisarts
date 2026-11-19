@@ -53,9 +53,9 @@
             label1.Font = new Font("Segoe UI", 18F);
             label1.Location = new Point(53, 42);
             label1.Name = "label1";
-            label1.Size = new Size(122, 32);
+            label1.Size = new Size(132, 32);
             label1.TabIndex = 0;
-            label1.Text = "Voornaam";
+            label1.Text = "Voornaam*";
             // 
             // txtVoornaam
             // 
@@ -79,9 +79,9 @@
             label2.Font = new Font("Segoe UI", 18F);
             label2.Location = new Point(391, 42);
             label2.Name = "label2";
-            label2.Size = new Size(142, 32);
+            label2.Size = new Size(152, 32);
             label2.TabIndex = 2;
-            label2.Text = "Achternaam";
+            label2.Text = "Achternaam*";
             // 
             // txtAdres
             // 
@@ -97,9 +97,9 @@
             label3.Font = new Font("Segoe UI", 18F);
             label3.Location = new Point(53, 151);
             label3.Name = "label3";
-            label3.Size = new Size(74, 32);
+            label3.Size = new Size(84, 32);
             label3.TabIndex = 4;
-            label3.Text = "Adres";
+            label3.Text = "Adres*";
             // 
             // txtHuisnummer
             // 
@@ -115,9 +115,9 @@
             label4.Font = new Font("Segoe UI", 18F);
             label4.Location = new Point(449, 151);
             label4.Name = "label4";
-            label4.Size = new Size(152, 32);
+            label4.Size = new Size(162, 32);
             label4.TabIndex = 6;
-            label4.Text = "Huisnummer";
+            label4.Text = "Huisnummer*";
             // 
             // txtPostcode
             // 
@@ -133,9 +133,9 @@
             label5.Font = new Font("Segoe UI", 18F);
             label5.Location = new Point(53, 270);
             label5.Name = "label5";
-            label5.Size = new Size(110, 32);
+            label5.Size = new Size(120, 32);
             label5.TabIndex = 8;
-            label5.Text = "Postcode";
+            label5.Text = "Postcode*";
             // 
             // txtPlaats
             // 
@@ -151,9 +151,9 @@
             label6.Font = new Font("Segoe UI", 18F);
             label6.Location = new Point(279, 270);
             label6.Name = "label6";
-            label6.Size = new Size(75, 32);
+            label6.Size = new Size(85, 32);
             label6.TabIndex = 10;
-            label6.Text = "Plaats";
+            label6.Text = "Plaats*";
             // 
             // txtTelefoon
             // 
@@ -169,9 +169,9 @@
             label7.Font = new Font("Segoe UI", 18F);
             label7.Location = new Point(53, 374);
             label7.Name = "label7";
-            label7.Size = new Size(198, 32);
+            label7.Size = new Size(208, 32);
             label7.TabIndex = 12;
-            label7.Text = "Telefoonnummer";
+            label7.Text = "Telefoonnummer*";
             // 
             // label8
             // 
@@ -193,6 +193,7 @@
             button1.TabIndex = 15;
             button1.Text = "Annuleren";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += btnAnnuleren_Click;
             // 
             // button2
             // 
@@ -205,6 +206,7 @@
             button2.TabIndex = 16;
             button2.Text = "Opslaan";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += btnOpslaan_Click;
             // 
             // FormNieuwePatient
             // 

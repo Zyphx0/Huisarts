@@ -13,7 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Huisarts_bewerken\Huisarts_bewerken.csproj" />
     <ProjectReference Include="..\Huisarts_nieuwepatient\Huisarts_nieuwepatient.csproj" />
+    <ProjectReference Include="..\Huisarts_Notatie\Huisarts_Notatie.csproj" />
   </ItemGroup>
 
   <ItemGroup>

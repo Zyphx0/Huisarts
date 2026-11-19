@@ -3,6 +3,8 @@ using System.Data;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using Huisarts_nieuwepatient;
+using Huisarts_Notatie;
+using Huisarts_bewerken;
 
 namespace Huisarts
 {
@@ -56,9 +58,9 @@ namespace Huisarts
                 "LIMIT " + maxperpagina + " OFFSET " + offset);
 
             // 3. Label en knoppen bijwerken
-            //lblPagina.Text = "Pagina " + pagina + " van " + aantalPaginas + " (" + totaal + " patiënten)";
-            //btnVorige.Enabled = pagina > 1;
-            //btnVolgende.Enabled = pagina < aantalPaginas;
+            label2.Text = "Pagina " + pagia + " van " + aantalpaginas + " (" + totaal + " patiënten)";
+            terugbtn.Enabled = pagia > 1;
+            volgbtn.Enabled = pagia < aantalpaginas;
         }
 
         private void txtZoek_Enter(object sender, EventArgs e)
@@ -109,8 +111,111 @@ namespace Huisarts
                     LaadPatienten();
                 }
             };
+            f.Show();
+        }
+
+        private void notatiebtn_Click(object sender, EventArgs e)
+        {
+            if (Patienten_dtg.CurrentRow == null)
+            {
+                MessageBox.Show("Selecteer eerst een patiënt.");
+                return;
+            }
+
+            DataGridViewRow rij = Patienten_dtg.CurrentRow;
+
+            int id = Convert.ToInt32(rij.Cells["Id"].Value);
+            string naam = rij.Cells["voornaam"].Value + " " + rij.Cells["Acternaam"].Value;
+            string adres = rij.Cells["Adres"].Value + " " + rij.Cells["Huisnummer"].Value;
+            string postcode = rij.Cells["Postcode"].Value + " " + rij.Cells["Plaats"].Value;
+            string telefoon = rij.Cells["telefoonnummer"].Value.ToString();
+
+            // De notitie staat niet in de tabel, dus even apart ophalen
+            DataTable dt = connect.ExecuteQuery("SELECT Note FROM patient_info WHERE Id = " + id);
+            string notitie = dt.Rows[0]["Note"].ToString();
+
+            Notietie f = new Notietie(id, naam, adres, postcode, telefoon, notitie);
+
+            f.FormClosed += (s, args) =>
+            {
+                if (f.DialogResult == DialogResult.OK)
+                {
+                    string nieuw = f.Notitie.Replace("'", "''");
+                    connect.ExecuteQuery("UPDATE patient_info SET Note = '" + nieuw + "' WHERE Id = " + id);
+                }
+            };
 
             f.Show();
+        }
+
+        private void Bewerkenbtn_Click(object sender, EventArgs e)
+        {
+            if (Patienten_dtg.CurrentRow == null)
+            {
+                MessageBox.Show("Selecteer eerst een patiënt.");
+                return;
+            }
+
+            DataGridViewRow rij = Patienten_dtg.CurrentRow;
+            int id = Convert.ToInt32(rij.Cells["Id"].Value);
+
+            Bewerken f = new Bewerken();
+            f.ToonPatient(
+                id,
+                rij.Cells["voornaam"].Value.ToString(),
+                rij.Cells["Acternaam"].Value.ToString(),
+                rij.Cells["Adres"].Value.ToString(),
+                rij.Cells["Huisnummer"].Value.ToString(),
+                rij.Cells["Postcode"].Value.ToString(),
+                rij.Cells["Plaats"].Value.ToString(),
+                rij.Cells["telefoonnummer"].Value.ToString());
+
+            f.FormClosed += (s, args) =>
+            {
+                if (f.DialogResult != DialogResult.OK) return;
+
+                if (f.Verwijderen)
+                {
+                    connect.ExecuteQuery("DELETE FROM patient_info WHERE Id = " + id);
+                }
+                else
+                {
+                    string voornaam = f.Voornaam.Replace("'", "''");
+                    string achternaam = f.Achternaam.Replace("'", "''");
+                    string adres = f.Adres.Replace("'", "''");
+                    string huisnummer = f.Huisnummer.Replace("'", "''");
+                    string postcode = f.Postcode.Replace("'", "''");
+                    string plaats = f.Plaats.Replace("'", "''");
+                    string telefoon = f.Telefoon.Replace("'", "''");
+
+                    connect.ExecuteQuery(
+                        "UPDATE patient_info SET voornaam = '" + voornaam + "', Acternaam = '" + achternaam +
+                        "', Adres = '" + adres + "', Huisnummer = '" + huisnummer +
+                        "', Postcode = '" + postcode + "', Plaats = '" + plaats +
+                        "', telefoonnummer = '" + telefoon + "' WHERE Id = " + id);
+                }
+                LaadPatienten();
+            };
+
+            f.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //clears the datagrid vieuw
+            LaadPatienten();
+        }
+
+        private void terugbtn_Click(object sender, EventArgs e)
+        {
+            pagia--;
+            LaadPatienten();
+        }
+
+        private void volgbtn_Click(object sender, EventArgs e)
+        {
+            pagia++;
+            LaadPatienten();
         }
     }
 }
