@@ -169,7 +169,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(965, 856);
+            ClientSize = new Size(879, 856);
             Controls.Add(terugbtn);
             Controls.Add(volgbtn);
             Controls.Add(label2);
